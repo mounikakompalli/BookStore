@@ -1,0 +1,33 @@
+
+<div class="container-fluid">
+	
+    <div class="row-fluid">
+		
+		    <table class="table table-hover table-striped">
+		  	 <thead>
+		  		 <tr>
+		  			 <th>ISBN</th>
+		  			 <th>Book Name</th>
+		  			 <th>Author</th>
+		  			 <th>Number of Books</th>
+					 <th>Published Date</th>
+					 <th>Book Category</th>
+					 <th>Number of Books Issued</th>
+		  		  </tr>
+		  	 </thead>
+		      <tbody>
+		        <tr ng-repeat="book in books" style="cursor:pointer" ng-class="{'selected':book == selectedRow}" ng-click="selectedRow(book)">
+		          <td> <a href="#/books/{{book._id}}">{{ book.ISBN }} </td>
+		          <td> {{ book.bookName }} </td>
+		  		 <td>{{ book.author }}</td>
+				  <td>{{ book.numberOfBooks }}</td>
+				  <td>{{ book.publishedDate | date:'yyyy-MM-dd' }}</td>
+				  <td>{{ book.category }}</td>
+				  <td>{{ book.noOfBooksIssued }}</td>
+				  <td ng-if="book.numberOfBooks > book.noOfBooksIssued"><button style="margin-top:20px" class="btn btn-default btn-color" ng-click="bookIssue(book)">Issue</button></td>
+				  <td ng-if="book.noOfBooksIssued > 0"><button style="margin-top:20px" class="btn btn-default btn-color" ng-click="bookReturn(book)">Return</button></td>
+		        </tr>
+		      </tbody>
+		    </table>
+	</div>
+</div>

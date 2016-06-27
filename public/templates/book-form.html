@@ -1,0 +1,49 @@
+<div class="row" ng-hide="book._id" id="book-from">
+  <div class="col-md-6">
+      <h2>Enter new Book details</h2>
+  </div>
+</div>
+<div class="container">
+  <form  class="css-form" name="bookForm" ng-submit="saveBook(book)" novalidate>
+  <div>
+    <p>
+      <label>ISBN (required)</label> 
+      <input  class="form-control" type="text" ng-readonly="editMode"  ng-model="book.ISBN" required>
+	  <p ng-show="book.ISBN.$invalid && !book.ISBN.$pristine" class="help-block">ISBN is required.</p>
+    </p>
+    <p>
+      <label>Book Name (required)</label> 
+      <input  class="form-control" type="text" ng-readonly="editMode" ng-model="book.bookName" required>
+	  <p ng-show="book.bookName.$invalid && !book.bookName.$pristine" class="help-block">Book Name is required.</p> 
+    </p>
+    <p>
+      <label>Book Author (required)</label> 
+      <input  class="form-control" type="text" ng-readonly="editMode" ng-model="book.author" required>
+	  <p ng-show="book.author.$invalid && !book.author.$pristine" class="help-block">Book Author is required.</p>
+    </p>
+    <p>
+      <label>Number of Books</label> 
+      <input  class="form-control" type="number" min="1" ng-change="errorHandle()" ng-model="book.numberOfBooks" ng-pattern="/^[0-9]{1,7}$/" required>
+	   <p class="alert" ng-show="book.numberOfBooks.$error.pattern">Numbers only, please.</p>
+	  <span style="color:red">{{error}}</span>
+    </p>
+    <p class="input-group">
+      <label>Published Date</label>
+      <input uib-datepicker-popup is-open="popup.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close"  class="form-control" type="text" ng-readonly="editMode" ng-model="book.publishedDate" required>
+	  <span class="input-group-btn">
+	              <button type="button" class="btn btn-default dateIcon" ng-click="open()"><i class="glyphicon glyphicon-calendar"></i></button>
+	            </span>
+		<p ng-show="book.numberOfBooks.$invalid && !book.numberOfBooks.$pristine" class="help-block">Published Date is required.</p>
+    </p>
+    <p>
+      <label>Category</label> 
+      <input  class="form-control" type="text" ng-readonly="editMode" ng-model="book.category" required>
+	  <p ng-show="book.category.$invalid && !book.category.$pristine" class="help-block">Category is required.</p>
+    </p>
+   
+    <p>
+      <input type="submit" value="Save" style="margin-top:20px"  class="btn btn-default btn-color"  ng-disabled="bookForm.$invalid"></input>
+    </p>
+  </div>
+  </form>
+</div>

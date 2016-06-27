@@ -1,0 +1,27 @@
+.nav-header {
+    color: #00A0C6;
+    text-decoration: none;
+}
+
+.nav-header:hover 
+{
+     color:#00A0C6; 
+     text-decoration:none; 
+     cursor:pointer;  
+}
+.selected{
+	background-color: #E0FFFF;
+	font-weight: bold;
+}
+/*.btn-color{
+	color: #fff;
+	background-color: #5bc0de;
+	border-color: #5bc0de;
+}*/
+.dateIcon{
+	margin-top:25px;
+}
+
+.css-form input.ng-invalid.ng-touched {
+   background-color: #FA787E;
+ }
